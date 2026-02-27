@@ -25,4 +25,19 @@ export const projects: Project[] = [
       "/realisations/villa1/3.jpg",
     ],
   },
+///// wast had classe ndiro les projets as object
+  {
+    slug: "appartement-casablanca-2025", // خاصو يكون unique
+    title: "Aménagement Appartement",
+    category: "Aménagement",
+    location: "Casablanca",
+    description:
+      "Aménagement intérieur moderne avec éclairage LED et faux plafond design.",
+    cover: "/realisations/appartement1/cover.jpg",
+    images: [
+      "/realisations/appartement1/1.jpg",
+      "/realisations/appartement1/2.jpg",
+      "/realisations/appartement1/3.jpg",
+    ],
+  },
 ];

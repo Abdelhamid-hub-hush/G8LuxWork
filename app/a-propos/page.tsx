@@ -11,7 +11,11 @@ export default function AboutPage() {
     title: lang === "fr" ? "À propos" : "من نحن",
     intro:
       lang === "fr"
-        ? `${site.name} est une équipe multi-services basée à ${site.city}. Nous misons sur la qualité, la précision et un chantier propre — du début à la finition.`
+        ? `${site.name}  est une équipe multi-services basée à Témara, spécialisée dans les travaux de rénovation, d’aménagement et d’installation technique. Nous accompagnons nos clients, particuliers et professionnels, dans la réalisation de leurs projets avec sérieux et professionnalisme.
+
+Nous mettons un point d’honneur sur la qualité des finitions, la précision dans l’exécution et le respect des délais. Chaque chantier est réalisé avec organisation et propreté, du début jusqu’à la livraison finale.
+
+Notre objectif est simple : offrir un travail fiable, durable et soigné, tout en garantissant la satisfaction de nos clients.`
         : `${site.name} فريق خدمات متعددة فـ ${site.city}. كنركزو على الجودة، الدقة، وخدمة نظيفة من البداية حتى اللمسات الأخيرة.`,
     cards: [
       {

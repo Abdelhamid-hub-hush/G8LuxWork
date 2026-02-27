@@ -46,11 +46,14 @@ function Modal({
     <div
       className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
     >
       <div
         className="relative w-full max-w-6xl rounded-3xl border border-white/10 bg-black/40 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* ✅ Retour + Close */}
         <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between gap-3">
           <button
             type="button"
@@ -68,17 +71,21 @@ function Modal({
           </button>
         </div>
 
+        {/* Prev / Next */}
         <button
           type="button"
           className="absolute left-3 top-1/2 -translate-y-1/2 z-10 rounded-full border border-white/15 bg-black/60 px-3 py-2 text-xl text-white/80 hover:bg-black/80"
           onClick={onPrev}
+          aria-label="Previous"
         >
           ‹
         </button>
+
         <button
           type="button"
           className="absolute right-3 top-1/2 -translate-y-1/2 z-10 rounded-full border border-white/15 bg-black/60 px-3 py-2 text-xl text-white/80 hover:bg-black/80"
           onClick={onNext}
+          aria-label="Next"
         >
           ›
         </button>
@@ -137,6 +144,8 @@ export default function ProjectsGallery({
       i === null ? null : (i + 1) % imagesSafe.length
     );
 
+  if (imagesSafe.length === 0) return null;
+
   return (
     <div>
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
@@ -157,6 +166,7 @@ export default function ProjectsGallery({
                 watermarkSizePx={170}
               />
             </div>
+
             {(img.alt || img.caption) && (
               <div className="px-3 py-2 text-left text-sm text-white/70">
                 {img.alt ?? img.caption}

@@ -8,6 +8,7 @@ import ServiceCards from "@/components/ServiceCards";
 export default function HomePage() {
   const { lang } = useLang();
 
+
   const t = {
     fr: {
       badge: "Témara • Travaux à domicile",

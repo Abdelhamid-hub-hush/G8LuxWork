@@ -1,42 +1,46 @@
-import Link from "next/link";
+import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
-import WatermarkedImage from "@/components/WatermarkedImage";
+import ProjectsGallery from "@/components/ProjectsGallery";
 
-export default function RealisationsPage() {
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function ProjectPage({ params }: PageProps) {
+  const { slug } = await params;
+
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return notFound();
+
+  const images = Array.isArray(project.images)
+    ? project.images.map((src) => ({
+        src,
+        alt: project.title,
+        caption: project.category,
+      }))
+    : [];
+
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="text-3xl font-semibold">Nos Réalisations</h1>
-      <p className="mt-2 text-white/70">
-        Des projets réalisés avec précision et exigence.
+      <h1 className="text-3xl font-semibold">{project.title}</h1>
+
+      <p className="mt-2 text-gold">
+        {project.category}
+        {project.location ? ` — ${project.location}` : ""}
       </p>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-2">
-        {projects.map((project) => (
-          <Link
-            key={project.slug}
-            href={`/realisations/${project.slug}`}
-            className="group rounded-3xl overflow-hidden border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition"
-          >
-            <div className="relative aspect-[16/10]">
-              <WatermarkedImage
-                src={project.cover}
-                alt={project.title}
-                fill
-                className="object-cover group-hover:scale-105 transition duration-500"
-              />
-            </div>
+      {project.description ? (
+        <p className="mt-4 max-w-3xl text-white/70">{project.description}</p>
+      ) : null}
 
-            <div className="p-6">
-              <div className="text-sm text-gold">{project.category}</div>
-              <h2 className="mt-2 text-xl font-semibold">
-                {project.title}
-              </h2>
-              <p className="mt-2 text-white/60 text-sm">
-                {project.location}
-              </p>
-            </div>
-          </Link>
-        ))}
+      <div className="mt-10">
+        {images.length ? (
+          <ProjectsGallery images={images} backText="Retour" />
+        ) : (
+          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 text-white/70">
+            Aucune photo pour ce projet.
+          </div>
+        )}
       </div>
     </section>
   );

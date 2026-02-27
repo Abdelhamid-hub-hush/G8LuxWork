@@ -28,7 +28,7 @@ export const gallery: GalleryItem[] = [
   { src: "/realisations/page_acceuil.jpeg", alt: "Projet — rénovation", category: "Rénovation" },
 
   // مثال باش تزيدي بزاف:
-  // { src: "/realisations/projet-02.jpeg", alt: "Faux plafond lumineux", category: "Plafonds" },
+   { src: "/realisations/camera_01.jpeg", alt: "Faux plafond lumineux", category: "Plafonds" },
   // { src: "/realisations/projet-03.jpeg", alt: "Climatisation — installation", category: "Climatisation" },
   // { src: "/realisations/projet-04.jpeg", alt: "Plâtrerie & Placo", category: "Plâtrerie/Placo" },
 ];

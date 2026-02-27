@@ -14,8 +14,14 @@ export const servicePhotos: Record<string, PhotoItem[]> = {
     { src: "/services/camera_03.jpeg", alt: "Caméra 3" },
     { src: "/services/camera_04.jpeg", alt: "Caméra 4" },
   ],
-   "ttttttttttttttttttttttttttttttt": [
+  //tajriba ziyada 
+   "l7oop": [
     { src: "/services/test1.png", alt: "hanta ra kaytzado" },
+   
+  ],
+  //tajriba ziyada 
+   "wakhdam": [
+    { src: "/services/1.png", alt: "hanti a kaoutar  ra kaytzado" },
    
   ],
 

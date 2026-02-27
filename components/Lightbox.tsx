@@ -26,7 +26,7 @@ function Modal({
   onPrev: () => void;
   onNext: () => void;
 }) {
-  const img = images[index];
+  const img = images?.[index];
 
   useEffect(() => {
     lockBodyScroll(true);
